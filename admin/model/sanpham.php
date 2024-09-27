@@ -50,11 +50,11 @@ function load_sanpham_cungloai($id,$iddm){
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
-function update_sanpham($id,$iddm,$tensp,$giasp,$mota,$hinh){
-    if($hinh!="")
-        $sql = "UPDATE sanpham SET iddm='".$iddm."', name='".$tensp."', price='".$giasp."', mota='".$mota."', img='".$hinh."' WHERE id = ".$id;
+function update_sanpham($id,$iddm,$name,$price,$mota,$img){
+    if($img!="")
+        $sql = "UPDATE sanpham SET iddm='".$iddm."', name='".$name."', price='".$price."', mota='".$mota."', img='".$img."' WHERE id = ".$id;
     else
-        $sql = "UPDATE sanpham SET iddm='".$iddm."', name='".$tensp."', price='".$giasp."', mota='".$mota."' WHERE id = ".$id;
+        $sql = "UPDATE sanpham SET iddm='".$iddm."', name='".$name."', price='".$price."', mota='".$mota."' WHERE id = ".$id;
 
     pdo_execute($sql);
 }

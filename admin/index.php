@@ -102,18 +102,18 @@ if(isset($_GET['act'])){
                 if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
                     $id = $_POST['id'];
                     $iddm = $_POST['iddm'];
-                    $tensp = $_POST['tensp'];
-                    $giasp = $_POST['giasp'];
+                    $name = $_POST['name'];
+                    $price = $_POST['price'];
                     $mota = $_POST['mota'];
-                    $hinh = $_FILES['hinh']['name'];
-                    $target_dir = "../upload/";
-                    $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-                    if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                    $img = $_FILES['img']['name'];
+                    $target_dir = "./upload/";
+                    $target_file = $target_dir . basename($_FILES["img"]["name"]);
+                    if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
                        // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
                       } else {
                         //echo "Sorry, there was an error uploading your file.";
                       }
-                    update_sanpham($id,$iddm,$tensp,$giasp,$mota,$hinh);
+                    update_sanpham($id,$iddm,$name,$price,$mota,$img);
                     $thongbao = "Cập nhật thành công";
                 }
                 $listdanhmuc = loadall_danhmuc(); 
