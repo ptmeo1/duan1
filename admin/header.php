@@ -46,6 +46,12 @@
                                 <span>Quản lý danh mục</span>
                             </a>
                         </li>
+                        <li class="sidebar-item  ">
+                            <a href="index.php?act=addsp" class='sidebar-link'>
+                                <i class="bi bi-life-preserver"></i>
+                                <span>Quản lý sản phẩm</span>
+                            </a>
+                        </li>
 
                     
 
