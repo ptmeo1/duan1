@@ -109,19 +109,26 @@ table input[type="button"]:hover {
             <div class="row formtitle margin10">
                 <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
             </div>
-            <form action="index.php?act=listsp" method="post">
-                        <input type="text" name="kyw">
-                        <select name="iddm" id="">
-                            <option value="0" selected>Tất cả</option>
-                            <?php 
-                            foreach($listdanhmuc as $danhmuc){
-                                extract($danhmuc);
-                                echo '<option value="'.$id.'">'.$name.'</option>';
-                            }
-                            ?>
-                        </select>
-                        <input type="submit" name="listok" value="GO">
-            </form>
+            <<form action="" method="post" class="d-flex align-items-center gap-3 mb-4">
+    <div class="flex-grow-1">
+        <input type="text" name="kyw" class="form-control" placeholder="Search products...">
+    </div>
+    <div>
+        <select name="iddm" class="form-select">
+            <option value="0" selected>All Categories</option>
+            <?php 
+            foreach($listdanhmuc as $danhmuc){
+                extract($danhmuc);
+                echo '<option value="'.$id.'">'.$name.'</option>';
+            }
+            ?>
+        </select>
+    </div>
+    <div>
+        <button type="submit" name="listok" class="btn btn-primary px-4">GO</button>
+    </div>
+</form>
+
             <div class="row formcontent">
                 <div class="row margin10 formdsloai">
                     
@@ -132,7 +139,7 @@ table input[type="button"]:hover {
                             <th>TÊN SẢN PHẨM</th>
                             <th>HÌNH</th>
                             <th>GIÁ</th>
-                            <th>LƯỢT XEM</th>
+                            <th>Mô tả</th>
                             <th></th>
                         </tr>
 
@@ -155,7 +162,7 @@ table input[type="button"]:hover {
                                         <td>'.$name.'</td>
                                         <td>'.$img.'</td>
                                         <td>'.$price.'</td>
-                                        <td>'.$luotxem.'</td>
+                                        <td>'.$mota.'</td>
                                         <td ><center class="d-flex" ><a class="pe-2"  href="'.$suasp.'"><input  type="button" value="Sửa"></a>  <a  href="'.$xoasp.'"><input class="bg-danger" type="button" value="Xóa"></center></td></a>
                                     </tr>';
                             }
