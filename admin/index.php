@@ -3,6 +3,7 @@ include "model/pdo.php";
 include "header.php";
 include "model/sanpham.php";
 include "model/danhmuc.php";
+include "model/taikhoan.php";
 if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch($act){
@@ -120,7 +121,22 @@ if(isset($_GET['act'])){
                 $listsanpham = loadall_sanpham("",0);
                 include "sanpham/list.php";
                 break;
-                    
+ 
+
+                case 'dskh':
+                
+                    $listtaikhoan = loadall_taikhoan();
+                    include 'taikhoan/list.php';
+                    break;
+    
+                case 'xoatk':
+                    if(isset($_GET['id'])&&($_GET['id'])){
+                        delete_taikhoan($_GET['id']);
+                    }
+                    $listtaikhoan = loadall_taikhoan();
+                    include 'taikhoan/list.php';
+                    break;
+    
         }
         
 
