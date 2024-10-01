@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "./admin/model/pdo.php";
 include "./admin/model/sanpham.php";
 include "./admin/model/danhmuc.php";
@@ -30,12 +31,15 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     $email = $_POST['email'];
                     $user = $_POST['user'];
                     $pass = $_POST['pass'];
-                    insert_taikhoan($email,$user,$pass);
+                    $tel = $_POST['tel'];
+                    $address = $_POST['address'];
+                    insert_taikhoan($email,$user,$pass,$tel,$address);
                     $thongbao = "Đã đăng ký thành công. Vui lòng đăng nhập để thực hiện chức năng";
                 }
                 include "view/taikhoan/dangky.php";
                 break;
             case 'dangnhap':
+             
                     if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
                         $user = $_POST['user'];
                         $pass = $_POST['pass'];
@@ -47,11 +51,13 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                         }else{
                             $thongbao ="Tài khoản không tồn tại vui lòng kiểm tra lại hoặc đăng ký!";
                         }
-                        
+                     
                     }
+                 else{
                     include "view/taikhoan/dangnhap.php";
+                 }
                     break;
-            case 'edit_taikhoan':
+                    case 'edit_taikhoan':
                         if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
                             $user = $_POST['user'];
                             $pass = $_POST['pass'];
@@ -82,8 +88,12 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                             }
                             include "view/taikhoan/quenmk.php";
                             break;
+         
 		}
-	}
+        
+        
+	}else{
+        include "./view/home.php";
+    }
 
-include "./view/home.php";
 include "./view/footer.php";

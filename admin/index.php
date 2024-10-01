@@ -136,6 +136,7 @@ if(isset($_GET['act'])){
                     $listtaikhoan = loadall_taikhoan();
                     include 'taikhoan/list.php';
                     break;
+                    
     
         }
         
